@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\daves\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\daves\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "C:\\Users\\daves\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",

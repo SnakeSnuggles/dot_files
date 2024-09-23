@@ -28,6 +28,7 @@ lsp_zero.extend_lspconfig({
 -- servers you have installed in your system
 require('lspconfig').gleam.setup({})
 require('lspconfig').rust_analyzer.setup({})
+require('lspconfig').sourcekit.setup({})
 
 ---
 -- Autocompletion setup
