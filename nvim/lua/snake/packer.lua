@@ -21,7 +21,10 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
     use('VonHeikemen/lsp-zero.nvim')
     use('neovim/nvim-lspconfig')
-    use('hrsh7th/nvim-cmp')
-    use('hrsh7th/cmp-nvim-lsp')
     use('williamboman/mason.nvim')
+    use('williamboman/mason-lspconfig.nvim')
+    use({ 'rose-pine/neovim', as = 'rose-pine' })
+    use({ 'itchyny/lightline.vim'})
+
 end)
+

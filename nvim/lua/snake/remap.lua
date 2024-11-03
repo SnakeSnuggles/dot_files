@@ -11,9 +11,39 @@ end, { noremap = true, silent = true })
 
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
-change_by = 2 
-vim.api.nvim_set_keymap('n', '+', string.format(':resize +%d<CR>',change_by), { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '_', string.format(':resize -%d<CR>',change_by), { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('n', '>', string.format(':vertical resize +%d<CR>',change_by), { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<', string.format(':vertical resize -%d<CR>',change_by), { noremap = true, silent = true })
+-- Changing size of window
+change_by = 2 
+vim.api.nvim_set_keymap('n', '=', string.format(':resize +%d<CR>',change_by), { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '-', string.format(':resize -%d<CR>',change_by), { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '+', string.format(':vertical resize +%d<CR>',change_by), { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '_', string.format(':vertical resize -%d<CR>',change_by), { noremap = true, silent = true })
+
+
+function other_side(key_pressed,other_key)
+    vim.keymap.set('i', key_pressed, function()
+
+        vim.api.nvim_feedkeys(key_pressed .. other_key, 'n', false)
+        
+        vim.defer_fn(function()
+    
+            vim.api.nvim_command("stopinsert")
+            vim.api.nvim_feedkeys("i", 'n', false) 
+    
+        end, 1) 
+    
+    end, { noremap = true, silent = true })
+end
+
+keys = {
+    ['"'] = '"', 
+    ["'"] = "'", 
+    ["{"] = "}", 
+    ["["] = "]", 
+    ["("] = ")"
+}
+
+for key,other_key in pairs(keys) do
+    other_side(key,other_key)
+end
